@@ -1,6 +1,6 @@
 # EVAS-OV
 ## Introduction
-![image](https://github.com/kotorimaster/EVAS-OV/blob/master/introduction.png)<br>
+[image](https://github.com/kotorimaster/EVAS-OV/blob/master/introduction.png)<br>
 This is a demo for Edge-assisted Viewport Adaptive Scheme for real-time Omnidirectional Video. The whole project contains two parts:
 + database
   + 5 omnidirectional videos for testing.
