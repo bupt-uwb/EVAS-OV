@@ -29,7 +29,7 @@ Before running this programme, you need to download [FFmpeg](http://ffmpeg.org/d
 + Run the `run.py` using python.
 
 ## Clustering algorithm
-The clustering algorithm is written using C++. It reads users' viewpoint data at the same moment and clusters them into groups based on the weighted sum of their viewpoints' distance and the difference of their velocity. Then the clustering outcome of the first moment's users' viewpoints will be saved as TXT files for demo and the MSE of all moments' clustering result will be calculated and saved as a TXT file. This clustering algorithm is designed mainly based on DBSCAN algorithm.
+The clustering algorithm is written using C++. This programme is written in Ubuntu 16.04. It reads users' viewpoint data at the same moment and clusters them into groups based on the weighted sum of their viewpoints' distance and the difference of their velocity. Then the clustering outcome of the first moment's users' viewpoints will be saved as TXT files for demo and the MSE of all moments' clustering result will be calculated and saved as a TXT file. This clustering algorithm is designed mainly based on DBSCAN algorithm.
 ### Usage
 + Open `code/clustering/run.cpp`.
 + Edit `viewdata_folder`, which is the path for the viewpoint file, noting that it should be `database/viewpoints_xyz`.
