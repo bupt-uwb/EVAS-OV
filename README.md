@@ -1,7 +1,9 @@
 # EVAS-OV
 ## Introduction
-[image](https://github.com/kotorimaster/EVAS-OV/blob/master/introduction.png)<br>
-This is a demo for Edge-assisted Viewport Adaptive Scheme for real-time Omnidirectional Video. The whole project contains two parts:
+In ["Edge-assisted Viewport Adaptive Scheme for real-time Omnidirectional Video transmission"](), we propose an edge-assisted viewport adaptive scheme (EVAS-OV) to reduce bandwidth consumption during real-time OV transmission. The main processing flow is shown in the figure below:<br>
+![image](https://github.com/kotorimaster/EVAS-OV/blob/master/introduction.png)<br>
+First, EVAS-OV uses a Gated Recurrent Unit(GRU) model to predict user’s viewpoint position. Then, users were divided into multicast clusters thereby further reducing the consumption of computing resources. EVAS-OV reprojects OV frames to accurately obtain a user’s FOV area from pixel level and adopt a redundant strategy to reduce the impact of viewport prediction errors as we called "VBM frame"(FOV-Base-Margin frame, which is a combined frame with user's FOV area and downsampled base layer and margin area of FOV).<br>
+This project is a demo for Edge-assisted Viewport Adaptive Scheme for real-time Omnidirectional Video. The whole project contains two parts:
 + database
   + 5 omnidirectional videos for testing.
   + 59 users' viewpoint data of 5 test videos extracted at 30 times per second.
@@ -12,7 +14,7 @@ This is a demo for Edge-assisted Viewport Adaptive Scheme for real-time Omnidire
 ## Omnidirectional video
 The 5 omnidirectional videos are stored in `database/videos`. Each video is a `3840 * 2048` 4K omnidirectional video with a duration of 20 seconds. They are from a open-source dataset ["360-degree video head movement dataset"](https://dl.acm.org/doi/abs/10.1145/3083187.3083215) by Kan N, Liu C, Zou J, et al.
 ## Viewpoint data
-The corresponding viewpoint dataset of 59 users extracted at 30 times per second. The original data is stored in `database\results` in which viewpoint is stored as *`(q0, q1, q2, q3)`* 4-dimension data. The data in `database\viewpoint_xyz` contains the viewpoint data stored as *`(x, y, z)`* coordinates of euclidean space. The data in `database\viewpoint_new` contains the viewpoint data stored as *`(roll, pitch, yaw)`* coordinates of Euler pt.
+The corresponding viewpoint dataset of 59 users extracted at 30 times per second. The original data is stored in `database\results` in which viewpoint is stored as *`(q0, q1, q2, q3)`* 4-dimension data. The data in `database\viewpoint_xyz` contains the viewpoint data stored as *`(x, y, z)`* coordinates of euclidean space so that we can intuitively get the distance of the user's viewpoint in the clustering algorithm. The data in `database\viewpoint_new` contains the viewpoint data stored as *`(roll, pitch, yaw)`* coordinates of Euler pt so that we can easily get the user's viewpoint position when reprojecting an omnidirectional frame.
 
 ## VBM generator
 The VBM generator is written using python. It reads omnidirectional video as BMP frames using FFmpeg and reprojects each frame to its viewpoint. Then these frames are cut and stitched as VBM frames and combine these frames in order into a VBM video.
@@ -39,3 +41,5 @@ The clustering algorithm is written using C++. It reads users' viewpoint data at
 + Edit `cluster_output`, which is the TXT file of clustering results of users' viewpoints at the first moment for demo.
 + Edit `MSE_file`, which is the path of the TXT file that contains the MSE of all moments' clustering result.
 + Compile `run.cpp` and run the generated EXE file.
+
+## Acknowledgement
