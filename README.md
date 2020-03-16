@@ -17,9 +17,9 @@ The 5 omnidirectional videos are stored in `database/videos`. Each video is a `3
 The corresponding viewpoint dataset of 59 users extracted at 30 times per second. The original data is stored in `database\results` in which viewpoint is stored as *`(q0, q1, q2, q3)`* 4-dimension data. The data in `database\viewpoint_xyz` contains the viewpoint data stored as *`(x, y, z)`* coordinates of euclidean space so that we can intuitively get the distance of the user's viewpoint in the clustering algorithm. The data in `database\viewpoint_new` contains the viewpoint data stored as *`(roll, pitch, yaw)`* coordinates of Euler pt so that we can easily get the user's viewpoint position when reprojecting an omnidirectional frame.
 
 ## VBM generator
-The VBM generator is written using python. It reads omnidirectional video as BMP frames using FFmpeg and reprojects each frame to its viewpoint. Then these frames are cut and stitched as VBM frames and combine these frames in order into a VBM video.
+The VBM generator is written using python 3. This programme is written in Ubuntu 16.04. It reads omnidirectional video as BMP frames using FFmpeg and reprojects each frame to its viewpoint. Then these frames are cut and stitched as VBM frames and combine these frames in order into a VBM video.
 ### Preparation
-Before running this programme, you need to download [FFmpeg](http://ffmpeg.org/download.html) on your computer and put the \<bin> folder into your computer's search path so that the `ffmpeg.exe` can be used in command line mode. Moreover, you should make sure that `'.'`(It means allow searching python script in the same folder) is in your python search path.
+Before running this programme, you need to download [FFmpeg](http://ffmpeg.org/download.html) on your computer and put the \<bin> folder into your computer's search path so that the `ffmpeg.exe` can be used in command line mode. Moreover, you should make sure that `'.'`(It means allow searching python script in the same folder) is in your python search path and you have had `fnmatch`, `cv2` installed in your python dev environment.
 ### Usage
 + Open `code/run.py`.
 + Edit `video_path`, which is the path of the omnidirectional video.
