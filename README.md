@@ -42,4 +42,3 @@ The clustering algorithm is written using C++. It reads users' viewpoint data at
 + Edit `MSE_file`, which is the path of the TXT file that contains the MSE of all moments' clustering result.
 + Compile `run.cpp` and run the generated EXE file.
 
-## Acknowledgement
