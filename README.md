@@ -1,6 +1,6 @@
 # EVAS-OV
 ## Introduction
-In ["Edge-assisted Viewport Adaptive Scheme for real-time Omnidirectional Video transmission"](), we propose an edge-assisted viewport adaptive scheme (EVAS-OV) to reduce bandwidth consumption during real-time OV transmission. The main processing flow is shown in the figure below:<br>
+In ["Edge-assisted Viewport Adaptive Scheme for real-time Omnidirectional Video transmission"](https://arxiv.org/abs/2003.09580), we propose an edge-assisted viewport adaptive scheme (EVAS-OV) to reduce bandwidth consumption during real-time OV transmission. The main processing flow is shown in the figure below:<br>
 ![image](https://github.com/kotorimaster/EVAS-OV/blob/master/introduction.png)<br>
 First, EVAS-OV uses a Gated Recurrent Unit(GRU) model to predict user’s viewpoint position. Then, users were divided into multicast clusters thereby further reducing the consumption of computing resources. EVAS-OV reprojects OV frames to accurately obtain a user’s FOV area from pixel level and adopt a redundant strategy to reduce the impact of viewport prediction errors as we called "VBM frame"(FOV-Base-Margin frame, which is a combined frame with user's FOV area and downsampled base layer and margin area of FOV).<br>
 This project is a demo for Edge-assisted Viewport Adaptive Scheme for real-time Omnidirectional Video. The whole project contains two parts:
